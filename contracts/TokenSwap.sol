@@ -31,17 +31,4 @@ contract FixedRateTokenSwap {
 
         require(tokenA.transfer(msg.sender, amountA), "TokenA transfer failed");
     }
-
-    function addLiquidity(uint amountA, uint amountB) external {
-        require(tokenA.transferFrom(msg.sender, address(this), amountA), "TokenA transfer failed");
-        require(tokenB.transferFrom(msg.sender, address(this), amountB), "TokenB transfer failed");
-    }
-
-    function withdrawLiquidity(uint amountA, uint amountB) external {
-        require(tokenA.balanceOf(address(this)) >= amountA, "Not enough TokenA");
-        require(tokenB.balanceOf(address(this)) >= amountB, "Not enough TokenB");
-
-        require(tokenA.transfer(msg.sender, amountA), "TokenA withdraw failed");
-        require(tokenB.transfer(msg.sender, amountB), "TokenB withdraw failed");
-    }
 }

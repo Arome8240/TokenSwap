@@ -1,9 +1,7 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
-export default buildModule("FixedRateTokenSwap", (m) => {
-  const counter = m.contract("TokenSwap");
+export default buildModule("FixedRateTokenSwapBuild", (m) => {
+  const TokenSwap = m.contract("FixedRateTokenSwap");
 
-  m.call(counter, "incBy", [5n]);
-
-  return { counter };
+  return { TokenSwap };
 });
